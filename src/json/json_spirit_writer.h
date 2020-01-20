@@ -1,10 +1,10 @@
 #ifndef JSON_SPIRIT_WRITER
 #define JSON_SPIRIT_WRITER
 
-//          Copyright John W. Wilkinson 2007 - 2009.
+//          Copyright John W. Wilkinson 2007 - 2020.
 // Distributed under the MIT License, see accompanying file LICENSE.txt
 
-// json spirit version 4.03
+// json spirit version 4.06
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 # pragma once
@@ -15,7 +15,7 @@
 
 namespace json_spirit
 {
-    // functions to convert JSON Values to text, 
+    // functions to convert JSON Values to text,
     // the "formatted" versions add whitespace to format the output nicely
 
     void         write          ( const Value& value, std::ostream&  os );
