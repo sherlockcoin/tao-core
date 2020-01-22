@@ -262,6 +262,7 @@ static const CRPCCommand vRPCCommands[] =
     { "getnewaddress",          &getnewaddress,          true,      false,     true },
     { "getnewpubkey",           &getnewpubkey,           true,      false,     true },
     { "getaccountaddress",      &getaccountaddress,      true,      false,     true },
+    { "getrawchangeaddress",    &getrawchangeaddress,    true,      false,     true },
     { "setaccount",             &setaccount,             true,      false,     true },
     { "getaccount",             &getaccount,             false,     false,     true },
     { "getaddressesbyaccount",  &getaddressesbyaccount,  true,      false,     true },
@@ -738,7 +739,7 @@ static string JSONRPCExecBatch(const Array& vReq)
     for (unsigned int reqIdx = 0; reqIdx < vReq.size(); reqIdx++)
         ret.push_back(JSONRPCExecOne(vReq[reqIdx]));
 
-    return write_string(Value(ret), false) + "\n";
+    return write_string(Value(ret), raw_utf8) + "\n";
 }
 
 void ServiceConnection(AcceptedConnection *conn)
