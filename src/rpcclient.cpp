@@ -251,7 +251,7 @@ int CommandLineRPC(int argc, char *argv[])
         if (error.type() != null_type)
         {
             // Error
-            strPrint = "error: " + write_string(error, false);
+            strPrint = "error: " + write_string(error, raw_utf8);
             int code = find_value(error.get_obj(), "code").get_int();
             nRet = abs(code);
         }
@@ -263,7 +263,7 @@ int CommandLineRPC(int argc, char *argv[])
             else if (result.type() == str_type)
                 strPrint = result.get_str();
             else
-                strPrint = write_string(result, true);
+                strPrint = write_string(result, pretty_print | raw_utf8);
         }
     }
     catch (boost::thread_interrupted) {
